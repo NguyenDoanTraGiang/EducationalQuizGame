@@ -14,15 +14,102 @@
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:orientation="vertical" >
+      android:orientation="vertical">
 
       <TextView
-        android:id="@+id/textView"
+        android:id="@+id/settingLabel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Setting"
+        android:text="@string/settingLabel"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
+
+      <TextView
+        android:id="@+id/settingIntro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:text="@string/settingIntro" />
+
+      <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp">
+
+        <TableRow
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" >
+
+          <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/timeLimitLabel"
+            android:textSize="20sp"
+            android:layout_weight="1"/>
+
+          <Spinner
+            android:id="@+id/timeSpinner"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="0.5"
+            android:textSize="20sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+        </TableRow>
+
+        <TableRow
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_marginTop="30dp">
+
+          <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/maxQuesLabel"
+            android:textSize="20sp" />
+
+          <Spinner
+            android:id="@+id/maxQuesSpinner"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="0.5"
+            android:textSize="20sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+        </TableRow>
+        <TableRow
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_marginTop="40dp">
+
+          <Button
+            android:id="@+id/applyBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:padding="20dp"
+            android:text="@string/applyBtnLabel"
+            android:textSize="20sp" />
+
+          <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:padding="20dp"
+            android:text="@string/cancelBtnLabel"
+            android:textSize="20sp" />
+        </TableRow>
+      </TableLayout>
+
+
     </LinearLayout>
   </ScrollView>
 

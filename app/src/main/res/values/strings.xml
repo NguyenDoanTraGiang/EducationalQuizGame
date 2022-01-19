@@ -7,6 +7,12 @@
   <string name="historyBtnLabel">history</string>
   <string name="settingBtnLabel">setting</string>
   <string name="highscoreBtnLabel">high score</string>
+    <string name="settingLabel">Setting</string>
+  <string name="settingIntro">Adjust the game settings</string>
+  <string name="maxQuesLabel">Max question number per quiz session</string>
+  <string name="timeLimitLabel">Time limit per quiz session</string>
+  <string name="applyBtnLabel">Apply</string>
+  <string name="cancelBtnLabel">Cancel</string>
 
   <!-- Math Section -->
   <string-array name="mathQuestions">
