@@ -95,7 +95,8 @@
             android:layout_margin="10dp"
             android:padding="20dp"
             android:text="@string/applyBtnLabel"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="applyBtnClicked"/>
 
           <Button
             android:id="@+id/cancelBtn"
@@ -105,7 +106,8 @@
             android:layout_margin="10dp"
             android:padding="20dp"
             android:text="@string/cancelBtnLabel"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="cancelBtnClicked"/>
         </TableRow>
       </TableLayout>
 
