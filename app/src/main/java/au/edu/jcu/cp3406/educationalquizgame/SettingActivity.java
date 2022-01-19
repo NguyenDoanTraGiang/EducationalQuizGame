@@ -2,11 +2,15 @@ package au.edu.jcu.cp3406.educationalquizgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class SettingActivity extends AppCompatActivity {
+  public static int SETTING_REQUEST = 1234;
   Spinner timeLimitSpinner;
   Spinner maxQuesSpinner;
 
@@ -33,4 +37,23 @@ public class SettingActivity extends AppCompatActivity {
       maxQuesSpinner.setSelection(3);
     }
 
+  public void applyBtnClicked(View view) {
+      // get selected item from Spinner
+      String timeLimitText = timeLimitSpinner.getSelectedItem().toString();
+      String maxQuesText = maxQuesSpinner.getSelectedItem().toString();
+      // convert to Integer
+      int timeLimit = Integer.parseInt(timeLimitText);
+      int maxQues = Integer.parseInt(maxQuesText);
+
+      Intent intent = new Intent();
+      intent.putExtra("timeLimit", timeLimit);
+      intent.putExtra("maxQuestion", maxQues);
+      setResult(RESULT_OK, intent);
+      finish();
+  }
+
+  public void cancelBtnClicked(View view) {
+    Toast.makeText(this, "Setting cancelled", Toast.LENGTH_SHORT).show();
+    finish();
+  }
 }

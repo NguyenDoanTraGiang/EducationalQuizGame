@@ -5,6 +5,7 @@ Student ID: 13836396
 App: Educational quiz game app for high school students
 */
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,10 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
   GameActivity gameActivity;
+  Integer timeLimit;
+  Integer maxQuestion;
+  String timeLimitText;
+  String maxQuestionText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +34,38 @@ public class MainActivity extends AppCompatActivity {
       Intent intent = new Intent(this, GameActivity.class);
       // put the button name into intent so GameActivity can access it
       intent.putExtra("gameLabel", btnText);
+      intent.putExtra("timeLimit", timeLimitText);
+      intent.putExtra("maxQuestion", maxQuestionText);
       startActivity(intent);
   }
 
   public void settingBtnClicked(View view) {
     Intent intent = new Intent(this, SettingActivity.class);
-    startActivity(intent);
+    startActivityForResult(intent, SettingActivity.SETTING_REQUEST);
   }
 
   public void highScoreBtnClicked(View view) {
     Intent intent = new Intent(this, HighScoreActivity.class);
     startActivity(intent);
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    // get data from intent after pressing apply in SettingActivity
+    if(requestCode == SettingActivity.SETTING_REQUEST){
+      if(resultCode == RESULT_OK){
+        if (data != null) {
+          timeLimit = data.getIntExtra("timeLimit", 180);
+          maxQuestion = data.getIntExtra("maxQuestion", 4);
+
+        }
+        else {
+          timeLimit = 180;
+          maxQuestion = 4;
+        }
+
+      }
+    }
   }
 }
