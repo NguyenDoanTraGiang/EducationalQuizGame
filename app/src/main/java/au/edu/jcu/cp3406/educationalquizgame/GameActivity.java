@@ -1,19 +1,17 @@
 package au.edu.jcu.cp3406.educationalquizgame;
 
+import static java.lang.Integer.parseInt;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class GameActivity extends AppCompatActivity {
@@ -32,7 +30,7 @@ public class GameActivity extends AppCompatActivity {
 
   QuestionTimer questionTimer;
   TextView timer;
-  Integer totalTime;
+  Integer timeLimit;
   boolean isTimerRunning;
   Integer timerSpeed;
   Handler handler;
@@ -56,6 +54,8 @@ public class GameActivity extends AppCompatActivity {
         // get the button name from MainActivity intent
         Intent intent = getIntent();
         levelName = intent.getExtras().getString("gameLabel");
+        timeLimit = intent.getIntExtra("timeLimit", 180);
+        maxQuestionNum= intent.getIntExtra("maxQuestion", 180);
 
         // Set game label
         TextView gameLabel = (TextView) findViewById(R.id.gameLabel);
@@ -69,7 +69,6 @@ public class GameActivity extends AppCompatActivity {
         //get timer display
         timer = (TextView) findViewById(R.id.timer);
 
-        totalTime = 180; // default value
         startTimer();
 
         getQuiz(levelName);
@@ -107,7 +106,7 @@ public class GameActivity extends AppCompatActivity {
   }
 
   private void startTimer() {
-    questionTimer = new QuestionTimer(totalTime);
+    questionTimer = new QuestionTimer(timeLimit);
     isTimerRunning = true;
     handler = new Handler();
 
