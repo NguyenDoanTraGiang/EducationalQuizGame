@@ -1,0 +1,180 @@
+<resources>
+  <string name="app_name">EducationalQuizGame</string>
+  <string name="app_intro">Choose a subject and start the quiz!</string>
+  <string name="mathBtnLabel">math</string>
+  <string name="englishBtnLabel">english</string>
+  <string name="geographyBtnLabel">geography</string>
+  <string name="historyBtnLabel">history</string>
+  <string name="settingBtnLabel">setting</string>
+  <string name="highscoreBtnLabel">high score</string>
+
+  <!-- Math Section -->
+  <string-array name="mathQuestions">
+    <item>Find k in -9k - 5 = -10k</item>
+    <item>Find h in 4h - 6 = 6h</item>
+    <item>Find t in -20 + 11q = 10q</item>
+    <item>Find z in 12 - 4z = -7z</item>
+  </string-array>
+  <string-array name="mathAnswers">
+    <item>5</item>
+    <item>-3</item>
+    <item>20</item>
+    <item>-4</item>
+  </string-array>
+
+  <string-array name="mathOptions1">
+    <item>5</item> <!--answer-->
+    <item>6</item>
+    <item>7</item>
+    <item>4</item>
+  </string-array>
+
+  <string-array name="mathOptions2">
+    <item>3</item>
+    <item>-3</item> <!--answer-->
+    <item>5</item>
+    <item>2</item>
+  </string-array>
+
+  <string-array name="mathOptions3">
+    <item>-20</item>
+    <item>10</item>
+    <item>20</item> <!--answer-->
+    <item>40</item>
+  </string-array>
+
+  <string-array name="mathOptions4">
+    <item>4</item>
+    <item>-9</item>
+    <item>100</item>
+    <item>-4</item> <!--answer-->
+  </string-array>
+
+  <!-- English Section -->
+  <string-array name="engQuestions">
+    <item>"Can you give me ___ information about determiners?"</item>
+    <item>"My ___ bother is shorter than me"</item>
+    <item>"____ tigers that escaped from the zoo were found wandering on the road."</item>
+    <item>"___ pupil of this section has passed the exam with a distinction."</item>
+  </string-array>
+  <string-array name="engAnswers">
+    <item>Some</item>
+    <item>Other</item>
+    <item>Five</item>
+    <item>Each</item>
+  </string-array>
+
+  <string-array name="engOptions1">
+    <item>Another</item>
+    <item>Many</item>
+    <item>Some</item> <!-- answer -->
+    <item>Several</item>
+  </string-array>
+
+  <string-array name="engOptions2">
+    <item>Any</item>
+    <item>Two</item>
+    <item>Some</item>
+    <item>Other</item> <!-- answer -->
+  </string-array>
+
+  <string-array name="engOptions3">
+    <item>Either</item>
+    <item>Each</item>
+    <item>One</item>
+    <item>Five</item> <!-- answer -->
+  </string-array>
+
+  <string-array name="engOptions4">
+    <item>Each</item> <!-- answer -->
+    <item>Many</item>
+    <item>Any</item>
+    <item>Four</item>
+  </string-array>
+
+  <!-- Geography Section -->
+  <string-array name="geoQuestions">
+    <item>What is the capital of Singapore?</item>
+    <item>Where is Singapore located?</item>
+    <item>What percentage of the population of Singapore lives in towns or cities?</item>
+    <item>How many kilometres of coastline does Singapore have?</item>
+  </string-array>
+
+  <string-array name="geoAnswers">
+    <item>Singapore</item>
+    <item>Southeast Asia</item>
+    <item>100%</item>
+    <item>193 km</item>
+  </string-array>
+
+  <string-array name="geoOptions1">
+    <item>Singapore</item> <!--answer-->
+    <item>Queenstown</item>
+    <item>Bedok</item>
+    <item>Yishurt New Town</item>
+  </string-array>
+
+  <string-array name="geoOptions2">
+    <item>Southwest Asia</item>
+    <item>Southeast Asia</item> <!--answer-->
+    <item>Central Asia</item>
+    <item>Northeast Asia</item>
+  </string-array>
+
+  <string-array name="geoOptions3">
+    <item>28%</item>
+    <item>45%</item>
+    <item>78%</item>
+    <item>100%</item> <!--answer-->
+  </string-array>
+
+  <string-array name="geoOptions4">
+    <item>1,568 km</item>
+    <item>769 km</item>
+    <item>193 km</item> <!--answer-->
+    <item>0 km</item>
+  </string-array>
+
+  <!-- History section -->
+  <string-array name="hisQuestions">
+    <item>What was Singapore originally known as?</item>
+    <item>In 1851, Singapore was under the control of the Governor-General of which country?</item>
+    <item>What year during World War 2 saw the beginning of the Japanese Occupation of Singapore?</item>
+    <item>Which political party has dominated and won every election since self-government in 1959?</item>
+  </string-array>
+
+  <string-array name="hisAnswers">
+    <item>Temasek</item>
+    <item>India</item>
+    <item>1942</item>
+    <item>The People\'s Action Party (PAP)</item>
+  </string-array>
+
+  <string-array name="hisOptions1">
+    <item>It had no name</item>
+    <item>Temasek</item> <!--answer-->
+    <item>Johor Lama</item>
+    <item>Palembang</item>
+  </string-array>
+
+  <string-array name="hisOptions2">
+    <item>Australia</item>
+    <item>India</item> <!--answer-->
+    <item>Malaysia</item>
+    <item>Ceylon (Sri Lanka)</item>
+  </string-array>
+
+  <string-array name="hisOptions3">
+    <item>1940</item>
+    <item>1941</item>
+    <item>1942</item> <!--answer-->
+    <item>1943</item>
+  </string-array>
+
+  <string-array name="hisOptions4">
+    <item>The People\'s Action Party (PAP)</item> <!--answer-->
+    <item>Singapore Democratic Party (SDP)</item>
+    <item>The Worker\'s Party of Singapore (WP)</item>
+    <item>Singapore Democratic Alliance (SDA)</item>
+  </string-array>
+</resources>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".MainActivity">
+
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/gameIntro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/app_intro"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+      <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+          <Button
+            android:id="@+id/mathBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#4009BF"
+            android:padding="20dp"
+            android:text="@string/mathBtnLabel"
+            android:textSize="20sp"
+            android:onClick="levelBtnClicked"/>
+
+          <Button
+            android:id="@+id/englishBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#09BF3D"
+            android:padding="20dp"
+            android:text="@string/englishBtnLabel"
+            android:textSize="20sp"
+            android:onClick="levelBtnClicked"/>
+        </TableRow>
+
+        <TableRow
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+          <Button
+            android:id="@+id/geographyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#BF6D09"
+            android:padding="20dp"
+            android:text="@string/geographyBtnLabel"
+            android:textSize="20sp"
+            android:onClick="levelBtnClicked"/>
+
+          <Button
+            android:id="@+id/historyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#09BFA4"
+            android:padding="20dp"
+            android:text="@string/historyBtnLabel"
+            android:textSize="20sp"
+            android:onClick="levelBtnClicked"/>
+        </TableRow>
+      </TableLayout>
+
+      <TextView
+        android:id="@+id/extraIntro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:text="Extras!"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+      <Button
+        android:id="@+id/settingBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="20dp"
+        android:text="@string/settingBtnLabel"
+        android:textSize="20sp"
+        android:onClick="settingBtnClicked"/>
+
+      <Button
+        android:id="@+id/highscoreBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="20dp"
+        android:text="@string/highscoreBtnLabel"
+        android:textSize="20sp"
+        android:onClick="highScoreBtnClicked"/>
+    </LinearLayout>
+  </ScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
