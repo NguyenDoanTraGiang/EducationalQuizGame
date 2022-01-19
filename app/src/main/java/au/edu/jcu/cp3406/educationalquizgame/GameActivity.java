@@ -36,6 +36,7 @@ public class GameActivity extends AppCompatActivity {
   boolean isTimerRunning;
   Integer timerSpeed;
   Handler handler;
+  Integer timerNum;
 
 
   @Override
@@ -48,7 +49,9 @@ public class GameActivity extends AppCompatActivity {
         maxQuestionNum = 4;
         correctAnswerNum = 0;
         isTimerRunning = false;
+        timerNum = 0;
         timerSpeed = 1000; // 1 second
+
 
         // get the button name from MainActivity intent
         Intent intent = getIntent();
@@ -66,6 +69,9 @@ public class GameActivity extends AppCompatActivity {
         //get timer display
         timer = (TextView) findViewById(R.id.timer);
 
+        totalTime = 180; // default value
+        startTimer();
+
         getQuiz(levelName);
         displayQuestion(levelName);
     }
@@ -77,10 +83,6 @@ public class GameActivity extends AppCompatActivity {
         //end the Activity when player answered all questions
         finish();
       } else {
-        stopTimer(); // stop previous timer
-        totalTime = 60; // default value
-        startTimer();
-
         // display current answer and score
         currentQuestionDisplay.setText(String.format("Question: %1$s/%2$s", currentQuestionNum+1, maxQuestionNum));
         correctAnswerDisplay.setText(String.format("Correct: %1$s out of %2$s", correctAnswerNum, maxQuestionNum));
@@ -115,30 +117,24 @@ public class GameActivity extends AppCompatActivity {
         if(isTimerRunning){
           String currentTime = questionTimer.toString();
           timer.setText(currentTime);
-
           questionTimer.tick();
           handler.postDelayed(this, timerSpeed);
-        } else {
-          handler.removeCallbacks(this);
         }
         if(questionTimer.toString().equals("00:00")){
-            // stop current timer from running
-            stopTimer();
             // stop handler from running the previous timer
             handler.removeCallbacks(this);
-
-            currentQuestionNum++;
             Toast.makeText(getApplicationContext(), "Time's out!", Toast.LENGTH_SHORT).show();
-            displayQuestion(levelName);
+            // end activity when player ran out of time
+            displayScore();
+            finish();
         }
       }
-
     });
   }
 
-  private void stopTimer() {
-    isTimerRunning = false;
-  }
+  //private void stopTimer() {
+    //isTimerRunning = false;
+  //}
 
   public void optionBtnClicked(View view) {
     // change to next question after an option has been pressed
@@ -148,12 +144,11 @@ public class GameActivity extends AppCompatActivity {
       currentQuestionNum++;
       correctAnswerNum++;
       Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
-      displayQuestion(levelName);
     } else {
       currentQuestionNum++;
       Toast.makeText(this, "Try again", Toast.LENGTH_SHORT).show();
-      displayQuestion(levelName);
     }
+    displayQuestion(levelName);
   }
 
   public void displayScore() {
