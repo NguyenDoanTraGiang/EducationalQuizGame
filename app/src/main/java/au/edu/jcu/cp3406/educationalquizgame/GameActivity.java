@@ -55,7 +55,7 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = getIntent();
         levelName = intent.getExtras().getString("gameLabel");
         timeLimit = intent.getIntExtra("timeLimit", 180);
-        maxQuestionNum= intent.getIntExtra("maxQuestion", 180);
+        maxQuestionNum= intent.getIntExtra("maxQuestion", 4);
 
         // Set game label
         TextView gameLabel = (TextView) findViewById(R.id.gameLabel);

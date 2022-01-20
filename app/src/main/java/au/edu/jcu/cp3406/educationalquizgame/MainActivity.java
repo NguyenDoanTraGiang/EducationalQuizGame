@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
       Intent intent = new Intent(this, GameActivity.class);
       // put the button name into intent so GameActivity can access it
       intent.putExtra("gameLabel", btnText);
-      intent.putExtra("timeLimit", timeLimitText);
-      intent.putExtra("maxQuestion", maxQuestionText);
+      intent.putExtra("timeLimit", timeLimit);
+      intent.putExtra("maxQuestion", maxQuestion);
       startActivity(intent);
   }
 
