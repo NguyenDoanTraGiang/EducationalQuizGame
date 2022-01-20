@@ -17,12 +17,30 @@
       android:orientation="vertical" >
 
       <TextView
-        android:id="@+id/textView"
+        android:id="@+id/highScoreLabel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="HighScore"
+        android:text="@string/highScoreLabel"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
+
+      <TextView
+        android:id="@+id/highScoreIntro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/highScoreIntro"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+      <TextView
+        android:id="@+id/exampleDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Most recent score: " />
+
     </LinearLayout>
   </ScrollView>
 
