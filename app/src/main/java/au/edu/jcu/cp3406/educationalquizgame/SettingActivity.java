@@ -45,6 +45,7 @@ public class SettingActivity extends AppCompatActivity {
       int timeLimit = Integer.parseInt(timeLimitText);
       int maxQues = Integer.parseInt(maxQuesText);
 
+      // add data to intent so Main Activity can access them
       Intent intent = new Intent();
       intent.putExtra("timeLimit", timeLimit);
       intent.putExtra("maxQuestion", maxQues);
@@ -52,6 +53,7 @@ public class SettingActivity extends AppCompatActivity {
       finish();
   }
 
+  // return to Main Activity without putting data into intent
   public void cancelBtnClicked(View view) {
     Toast.makeText(this, "Setting cancelled", Toast.LENGTH_SHORT).show();
     finish();
