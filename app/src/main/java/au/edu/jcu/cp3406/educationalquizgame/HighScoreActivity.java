@@ -21,7 +21,7 @@ public class HighScoreActivity extends AppCompatActivity {
         correctAnswerNum = intent.getIntExtra("correctAnswerNum", 0);
         maxQuestionNum = intent.getIntExtra("maxQuestionNum", 0);
 
-        exampleDisplay = (TextView) findViewById(R.id.recentScoreDisplay);
+        exampleDisplay = (TextView) findViewById(R.id.exampleDisplay);
         exampleDisplay.setText(String.format("Recent attempt: %1$s out of %2$s", correctAnswerNum, maxQuestionNum));
 
     }
