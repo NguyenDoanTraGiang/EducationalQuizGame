@@ -152,10 +152,11 @@ public class GameActivity extends AppCompatActivity {
 
   public void displayScore() {
     // put data to intent for HighScore Activity
-    Intent highScoreIntent = new Intent(this, CurrentScoreActivity.class);
-    highScoreIntent.putExtra("correctAnswerNum", correctAnswerNum);
-    highScoreIntent.putExtra("maxQuestionNum", maxQuestionNum);
-    startActivity(highScoreIntent);
+    Intent currentScoreIntent = new Intent(this, CurrentScoreActivity.class);
+    currentScoreIntent.putExtra("correctAnswerNum", correctAnswerNum);
+    currentScoreIntent.putExtra("maxQuestionNum", maxQuestionNum);
+    currentScoreIntent.putExtra("levelName", levelName);
+    startActivity(currentScoreIntent);
   }
 
   // put each question as key and answer as value in HashMap
