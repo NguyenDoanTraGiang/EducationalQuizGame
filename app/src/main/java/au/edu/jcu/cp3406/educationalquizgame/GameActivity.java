@@ -22,7 +22,6 @@ public class GameActivity extends AppCompatActivity {
   TextView question;
   TextView correctAnswerDisplay;
   TextView currentQuestionDisplay;
-  HashMap<String, String> quesAndAns;
   Integer correctAnswerNum;
   Integer currentQuestionNum;
   Integer maxQuestionNum;
@@ -69,8 +68,10 @@ public class GameActivity extends AppCompatActivity {
       int seconds = timeLimit % 60;
 
         if(savedInstanceState == null){
+          // if UI never changed, keep the default value and set a new timer
           questionTimer = new QuestionTimer(minutes, seconds);
         } else{
+          // get data from SavedInstanced when UI changed
           int savedSeconds = savedInstanceState.getInt("seconds");
           int savedMinutes = savedInstanceState.getInt("minutes");
           currentQuestionNum = savedInstanceState.getInt("currentQuestionNum");
@@ -88,6 +89,7 @@ public class GameActivity extends AppCompatActivity {
         displayQuestion();
     }
 
+  // called when the UI changed, save data before activity is destroyed
   @Override
   protected void onSaveInstanceState(@NonNull Bundle outState) {
     super.onSaveInstanceState(outState);
@@ -130,7 +132,6 @@ public class GameActivity extends AppCompatActivity {
   }
 
   private void startTimer() {
-
     isTimerRunning = true;
     handler = new Handler();
 
@@ -182,16 +183,6 @@ public class GameActivity extends AppCompatActivity {
     currentScoreIntent.putExtra("levelName", levelName);
     startActivity(currentScoreIntent);
   }
-
-  // put each question as key and answer as value in HashMap
-    /*public HashMap<String, String> getQuestions(String levelName, String[] questions, String[] correctAnswers) {
-
-      HashMap<String, String> quesAndAns = new HashMap<String, String>();
-      for (int i=0; i < questions.length; i++){
-        quesAndAns.put(questions[i], correctAnswers[i]);
-      }
-      return quesAndAns;
-  }*/
 
   // get all the questions, their answers and options
   private void getQuiz(String levelName) {

@@ -23,15 +23,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // set default value
         timeLimit = 180;
         maxQuestion = 4;
 
+        // get data from SavedInstance
         if(savedInstanceState != null){
           timeLimit = savedInstanceState.getInt("timeLimit");
           maxQuestion = savedInstanceState.getInt("maxQuestion");
         }
     }
 
+  // called when the UI changed, save data before activity is destroyed
   @Override
   protected void onSaveInstanceState(@NonNull Bundle outState) {
     super.onSaveInstanceState(outState);
