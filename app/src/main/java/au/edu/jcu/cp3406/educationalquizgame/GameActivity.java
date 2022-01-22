@@ -2,6 +2,7 @@ package au.edu.jcu.cp3406.educationalquizgame;
 
 import static java.lang.Integer.parseInt;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 import java.util.HashMap;
 
 public class GameActivity extends AppCompatActivity {
+  Integer TIMER_SPEED = 1000;  // 1 second
+
   String levelName;
   TextView question;
   TextView correctAnswerDisplay;
@@ -32,9 +35,7 @@ public class GameActivity extends AppCompatActivity {
   TextView timer;
   Integer timeLimit;
   boolean isTimerRunning;
-  Integer timerSpeed;
   Handler handler;
-  Integer timerNum;
 
 
   @Override
@@ -42,41 +43,64 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        // set default values
-        currentQuestionNum = 0;
-        maxQuestionNum = 4;
-        correctAnswerNum = 0;
-        isTimerRunning = false;
-        timerNum = 0;
-        timerSpeed = 1000; // 1 second
+      // get the button name from MainActivity intent
+      Intent intent = getIntent();
+      levelName = intent.getExtras().getString("gameLabel");
+      timeLimit = intent.getIntExtra("timeLimit", 180);
+      maxQuestionNum= intent.getIntExtra("maxQuestion", 4);
+
+      // Set game label
+      TextView gameLabel = (TextView) findViewById(R.id.gameLabel);
+      gameLabel.setText("Answer this " + levelName + " question before time runs out!");
+
+      // get Views
+      question = (TextView) findViewById(R.id.quesDisplay);
+      correctAnswerDisplay = (TextView) findViewById(R.id.correctAnswerDisplay);
+      currentQuestionDisplay = (TextView) findViewById((R.id.currentQuesDisplay));
+
+      //get timer display
+      timer = (TextView) findViewById(R.id.timer);
+
+      // set default value
+      currentQuestionNum = 0;
+      correctAnswerNum = 0;
+      isTimerRunning = false;
+      int minutes = timeLimit/60;
+      int seconds = timeLimit % 60;
+
+        if(savedInstanceState == null){
+          questionTimer = new QuestionTimer(minutes, seconds);
+        } else{
+          int savedSeconds = savedInstanceState.getInt("seconds");
+          int savedMinutes = savedInstanceState.getInt("minutes");
+          currentQuestionNum = savedInstanceState.getInt("currentQuestionNum");
+          maxQuestionNum = savedInstanceState.getInt("maxQuestionNum");
+          isTimerRunning = savedInstanceState.getBoolean("isTimerRunning");
+          correctAnswerNum = savedInstanceState.getInt("correctAnswerNum");
+          //timeLimit = savedMinutes*60 + savedSeconds;
+          questionTimer = new QuestionTimer(savedMinutes, savedSeconds);
+        }
 
 
-        // get the button name from MainActivity intent
-        Intent intent = getIntent();
-        levelName = intent.getExtras().getString("gameLabel");
-        timeLimit = intent.getIntExtra("timeLimit", 180);
-        maxQuestionNum= intent.getIntExtra("maxQuestion", 4);
-
-        // Set game label
-        TextView gameLabel = (TextView) findViewById(R.id.gameLabel);
-        gameLabel.setText("Answer this " + levelName + " question before time runs out!");
-
-        // get Views
-        question = (TextView) findViewById(R.id.quesDisplay);
-        correctAnswerDisplay = (TextView) findViewById(R.id.correctAnswerDisplay);
-        currentQuestionDisplay = (TextView) findViewById((R.id.currentQuesDisplay));
-
-        //get timer display
-        timer = (TextView) findViewById(R.id.timer);
-
-        startTimer();
+    startTimer();
 
         getQuiz(levelName);
-        displayQuestion(levelName);
+        displayQuestion();
     }
 
-    // display a question and its options
-    public void displayQuestion(String levelName){
+  @Override
+  protected void onSaveInstanceState(@NonNull Bundle outState) {
+    super.onSaveInstanceState(outState);
+    outState.putInt("seconds", questionTimer.getSeconds());
+    outState.putInt("minutes", questionTimer.getMinutes());
+    outState.putInt("currentQuestionNum", currentQuestionNum);
+    outState.putInt("maxQuestionNum", maxQuestionNum);
+    outState.putBoolean("isTimerRunning", isTimerRunning);
+    outState.putInt("correctAnswerNum", correctAnswerNum);
+  }
+
+  // display a question and its options
+    public void displayQuestion(){
       if (currentQuestionNum > maxQuestionNum - 1){
         displayScore();
         //end the Activity when player answered all questions
@@ -106,7 +130,7 @@ public class GameActivity extends AppCompatActivity {
   }
 
   private void startTimer() {
-    questionTimer = new QuestionTimer(timeLimit);
+
     isTimerRunning = true;
     handler = new Handler();
 
@@ -117,7 +141,7 @@ public class GameActivity extends AppCompatActivity {
           String currentTime = questionTimer.toString();
           timer.setText(currentTime);
           questionTimer.tick();
-          handler.postDelayed(this, timerSpeed);
+          handler.postDelayed(this, TIMER_SPEED);
         }
         if(questionTimer.toString().equals("00:00")){
             // stop handler from running the previous timer
@@ -147,7 +171,7 @@ public class GameActivity extends AppCompatActivity {
       currentQuestionNum++;
       Toast.makeText(this, "Try again", Toast.LENGTH_SHORT).show();
     }
-    displayQuestion(levelName);
+    displayQuestion();
   }
 
   public void displayScore() {

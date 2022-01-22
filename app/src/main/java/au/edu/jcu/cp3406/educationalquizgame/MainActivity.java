@@ -5,6 +5,7 @@ Student ID: 13836396
 App: Educational quiz game app for high school students
 */
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,14 +18,26 @@ public class MainActivity extends AppCompatActivity {
   GameActivity gameActivity;
   Integer timeLimit;
   Integer maxQuestion;
-  String timeLimitText;
-  String maxQuestionText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        timeLimit = 180;
+        maxQuestion = 4;
+
+        if(savedInstanceState != null){
+          timeLimit = savedInstanceState.getInt("timeLimit");
+          maxQuestion = savedInstanceState.getInt("maxQuestion");
+        }
     }
+
+  @Override
+  protected void onSaveInstanceState(@NonNull Bundle outState) {
+    super.onSaveInstanceState(outState);
+    outState.putInt("timeLimit", timeLimit);
+    outState.putInt("maxQuestion", maxQuestion);
+  }
 
   public void levelBtnClicked(View view) {
       Button button = (Button) view;

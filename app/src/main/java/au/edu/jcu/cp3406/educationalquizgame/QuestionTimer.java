@@ -7,9 +7,17 @@ import java.util.Locale;
 
 public class QuestionTimer {
   private int minutes, seconds;
-  QuestionTimer(int totalTime) {// in seconds
-    minutes = totalTime/60;
-    seconds = totalTime % 60;
+  QuestionTimer() {// in seconds
+    minutes = 0;
+    seconds = 0;
+  }
+  //QuestionTimer(int totalTime) {// in seconds
+    //minutes = totalTime/60;
+    //seconds = totalTime % 60;
+  //}
+  public QuestionTimer(int minutes, int seconds){
+    this.minutes = minutes;
+    this.seconds = seconds;
   }
 
   void tick(){
@@ -31,4 +39,11 @@ public class QuestionTimer {
     return formatter.toString();
   }
 
+  public int getSeconds() {
+    return seconds;
+  }
+
+  public int getMinutes() {
+    return minutes;
+  }
 }

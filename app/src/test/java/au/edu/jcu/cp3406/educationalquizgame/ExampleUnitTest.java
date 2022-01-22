@@ -14,13 +14,13 @@ import java.util.HashMap;
 public class ExampleUnitTest {
   @Test
   public void QuestionTimerConstructor() {
-    QuestionTimer questionTimer = new QuestionTimer(60);
+    QuestionTimer questionTimer = new QuestionTimer(60, 0);
     assertEquals("01:00", questionTimer.toString());
   }
 
   @Test
   public void QuestionTimerTest() {
-    QuestionTimer questionTimer = new QuestionTimer(60);
+    QuestionTimer questionTimer = new QuestionTimer(60, 0);
     questionTimer.tick();
     assertEquals("00:59", questionTimer.toString());
 
