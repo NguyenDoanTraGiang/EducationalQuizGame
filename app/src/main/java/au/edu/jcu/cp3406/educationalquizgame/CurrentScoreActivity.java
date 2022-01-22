@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class HighScoreActivity extends AppCompatActivity {
+public class CurrentScoreActivity extends AppCompatActivity {
   Integer correctAnswerNum;
   Integer maxQuestionNum;
   TextView exampleDisplay;
@@ -15,7 +15,7 @@ public class HighScoreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_high_score);
+        setContentView(R.layout.activity_current_score);
 
         Intent intent = getIntent();
         correctAnswerNum = intent.getIntExtra("correctAnswerNum", 0);

@@ -152,7 +152,7 @@ public class GameActivity extends AppCompatActivity {
 
   public void displayScore() {
     // put data to intent for HighScore Activity
-    Intent highScoreIntent = new Intent(this, HighScoreActivity.class);
+    Intent highScoreIntent = new Intent(this, CurrentScoreActivity.class);
     highScoreIntent.putExtra("correctAnswerNum", correctAnswerNum);
     highScoreIntent.putExtra("maxQuestionNum", maxQuestionNum);
     startActivity(highScoreIntent);
