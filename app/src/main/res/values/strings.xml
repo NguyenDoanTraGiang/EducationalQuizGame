@@ -13,8 +13,8 @@
   <string name="timeLimitLabel">Time limit per quiz session (seconds)</string>
   <string name="applyBtnLabel">Apply</string>
   <string name="cancelBtnLabel">Cancel</string>
-    <string name="highScoreLabel">High Score</string>
-  <string name="highScoreIntro">See how well you done in previous attempts!</string>
+    <string name="currentScoreLabel">Final Score</string>
+  <string name="currentScoreIntro">Congratulations, you finished the test!</string>
 
   <string-array name="timeLimits">
     <item>60</item>
