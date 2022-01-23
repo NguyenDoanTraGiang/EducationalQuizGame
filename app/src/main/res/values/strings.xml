@@ -7,18 +7,20 @@
   <string name="historyBtnLabel">history</string>
   <string name="settingBtnLabel">setting</string>
   <string name="highscoreBtnLabel">high score</string>
-    <string name="settingLabel">Setting</string>
+  <string name="settingLabel">Setting</string>
   <string name="settingIntro">Adjust the game settings</string>
   <string name="maxQuesLabel">Max question number per quiz session</string>
   <string name="timeLimitLabel">Time limit per quiz session (seconds)</string>
   <string name="applyBtnLabel">Apply</string>
   <string name="cancelBtnLabel">Cancel</string>
-    <string name="currentScoreLabel">Final Score</string>
+  <string name="currentScoreLabel">Final Score</string>
   <string name="currentScoreIntro">Congratulations, you finished the test!</string>
-    <string name="saveScoreBtnLabel">Save score</string>
+  <string name="saveScoreBtnLabel">Save score</string>
   <string name="viewScoreBtnLabel">View all score</string>
   <string name="subjectDisplay">Subject: Geography</string>
   <string name="scoreDisplay">Score: 1 out of 1!</string>
+  <string name="toHomeBtnLabel">Back to Home Screen</string>
+  <string name="highScoreLabel">High Score</string>
 
   <string-array name="timeLimits">
     <item>60</item>
