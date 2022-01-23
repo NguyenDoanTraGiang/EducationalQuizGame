@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
   public void highScoreBtnClicked(View view) {
-    Intent intent = new Intent(this, CurrentScoreActivity.class);
+    Intent intent = new Intent(this, ViewHighScore.class);
     startActivity(intent);
   }
 
