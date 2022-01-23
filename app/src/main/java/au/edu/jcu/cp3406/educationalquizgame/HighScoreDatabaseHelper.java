@@ -9,11 +9,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class HighScoreDatabaseHelper extends SQLiteOpenHelper {
   public static final String DATABASE_NAME = "high_score.db";
   public static final String TABLE_NAME = "high_score";
-  public static final String COLUMN1= "ID";
+  public static final String COLUMN1 = "ID";
   public static final String COLUMN2 = "HIGH_SCORE";
 
-  public HighScoreDatabaseHelper(Context context){
-      super(context, DATABASE_NAME, null, 1);
+  public HighScoreDatabaseHelper(Context context) {
+    super(context, DATABASE_NAME, null, 1);
   }
 
   @Override
@@ -30,7 +30,7 @@ public class HighScoreDatabaseHelper extends SQLiteOpenHelper {
     onCreate(sqLiteDatabase);
   }
 
-  public boolean addData(String highScore){
+  public boolean addData(String highScore) {
     SQLiteDatabase database = this.getWritableDatabase();  // the database can be read or write
     ContentValues contentValues = new ContentValues();
     contentValues.put(COLUMN2, highScore); // put the high score to column 2
@@ -38,15 +38,15 @@ public class HighScoreDatabaseHelper extends SQLiteOpenHelper {
     // insert the data into table
     long result = database.insert(TABLE_NAME, null, contentValues);
 
-    if (result == -1){
+    if (result == -1) {
       // database.insert returns -1 if the data is not inserted successfully
-        return false;
-    } else{
+      return false;
+    } else {
       return true;
     }
   }
 
-  public Cursor getHighScoreList(){
+  public Cursor getHighScoreList() {
     SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
     // get the values of all columns from table using SQL query
     return sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME, null);
