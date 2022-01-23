@@ -72,5 +72,6 @@ public class CurrentScoreActivity extends AppCompatActivity {
   public void viewBtnClicked(View view) {
       Intent intent = new Intent(this, ViewHighScore.class);
       startActivity(intent);
+      finish();
   }
 }
