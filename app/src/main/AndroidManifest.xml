@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EducationalQuizGame">
         <activity
-            android:name=".ViewHighScore"
+            android:name=".ViewHighScoreActivity"
             android:exported="false" />
         <activity
             android:name=".CurrentScoreActivity"

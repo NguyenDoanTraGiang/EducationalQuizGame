@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Locale;
-
 public class CurrentScoreActivity extends AppCompatActivity {
   Integer correctAnswerNum;
   Integer maxQuestionNum;
@@ -51,14 +49,14 @@ public class CurrentScoreActivity extends AppCompatActivity {
 
   public void saveBtnClicked(View view) {
       if(!highScoreValue.equals("")){
-        AddHighScore(highScoreValue);
+        addHighScore(highScoreValue);
         highScoreValue = ""; // reset the value to empty if successfully added
       } else{
         Toast.makeText(this, "You already save this score!", Toast.LENGTH_SHORT).show();
       }
 }
 
-  public void AddHighScore(String highScoreValue) {
+  public void addHighScore(String highScoreValue) {
       boolean isDataInserted = databaseHelper.addData(highScoreValue);
 
       if(isDataInserted){
@@ -70,7 +68,7 @@ public class CurrentScoreActivity extends AppCompatActivity {
   }
 
   public void viewBtnClicked(View view) {
-      Intent intent = new Intent(this, ViewHighScore.class);
+      Intent intent = new Intent(this, ViewHighScoreActivity.class);
       startActivity(intent);
       finish();
   }

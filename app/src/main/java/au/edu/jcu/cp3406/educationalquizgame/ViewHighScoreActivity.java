@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ViewHighScore extends AppCompatActivity {
+public class ViewHighScoreActivity extends AppCompatActivity {
   HighScoreDatabaseHelper databaseHelper;
 
     @Override
