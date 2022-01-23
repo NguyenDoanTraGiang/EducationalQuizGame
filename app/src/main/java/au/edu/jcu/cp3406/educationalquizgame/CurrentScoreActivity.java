@@ -20,56 +20,56 @@ public class CurrentScoreActivity extends AppCompatActivity {
   Button saveBtn, viewBtn;
   String highScoreValue;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_current_score);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_current_score);
 
-        Intent intent = getIntent();
-        correctAnswerNum = intent.getIntExtra("correctAnswerNum", 0);
-        maxQuestionNum = intent.getIntExtra("maxQuestionNum", 0);
-        levelName = intent.getStringExtra("levelName");
-        // capitalize the first character of level name
-        String firstLetter = levelName.substring(0, 1);
-        String otherLetter = levelName.substring(1);
-        firstLetter = firstLetter.toUpperCase();
-        String capitalizedName = firstLetter + otherLetter;
+    Intent intent = getIntent();
+    correctAnswerNum = intent.getIntExtra("correctAnswerNum", 0);
+    maxQuestionNum = intent.getIntExtra("maxQuestionNum", 0);
+    levelName = intent.getStringExtra("levelName");
+    // capitalize the first character of level name
+    String firstLetter = levelName.substring(0, 1);
+    String otherLetter = levelName.substring(1);
+    firstLetter = firstLetter.toUpperCase();
+    String capitalizedName = firstLetter + otherLetter;
 
-        subjectDisplay = (TextView) findViewById(R.id.subjectDisplay);
-        scoreDisplay = (TextView) findViewById(R.id.currentScoreDisplay);
+    subjectDisplay = findViewById(R.id.subjectDisplay);
+    scoreDisplay = findViewById(R.id.currentScoreDisplay);
 
-        subjectDisplay.setText(String.format("Subject: %s", capitalizedName));
-        scoreDisplay.setText(String.format("Score: %1$s out of %2$s!", correctAnswerNum, maxQuestionNum));
+    subjectDisplay.setText(String.format("Subject: %s", capitalizedName));
+    scoreDisplay.setText(String.format("Score: %1$s out of %2$s!", correctAnswerNum, maxQuestionNum));
 
-        databaseHelper = new HighScoreDatabaseHelper(this);
-        saveBtn = (Button) findViewById(R.id.saveScoreBtn);
-        viewBtn = (Button) findViewById(R.id.viewScoreBtn);
-        highScoreValue = String.format("%1$s: %2$s out of %3$s", capitalizedName, correctAnswerNum, maxQuestionNum);
-    }
+    databaseHelper = new HighScoreDatabaseHelper(this);
+    saveBtn = findViewById(R.id.saveScoreBtn);
+    viewBtn = findViewById(R.id.viewScoreBtn);
+    highScoreValue = String.format("%1$s: %2$s out of %3$s", capitalizedName, correctAnswerNum, maxQuestionNum);
+  }
 
   public void saveBtnClicked(View view) {
-      if(!highScoreValue.equals("")){
-        addHighScore(highScoreValue);
-        highScoreValue = ""; // reset the value to empty if successfully added
-      } else{
-        Toast.makeText(this, "You already save this score!", Toast.LENGTH_SHORT).show();
-      }
-}
+    if (!highScoreValue.equals("")) {
+      addHighScore(highScoreValue);
+      highScoreValue = ""; // reset the value to empty if successfully added
+    } else {
+      Toast.makeText(this, "You already save this score!", Toast.LENGTH_SHORT).show();
+    }
+  }
 
   public void addHighScore(String highScoreValue) {
-      boolean isDataInserted = databaseHelper.addData(highScoreValue);
+    boolean isDataInserted = databaseHelper.addData(highScoreValue);
 
-      if(isDataInserted){
-        Toast.makeText(this, "Successfully save your score!", Toast.LENGTH_SHORT).show();
+    if (isDataInserted) {
+      Toast.makeText(this, "Successfully save your score!", Toast.LENGTH_SHORT).show();
 
-      } else{
-        Toast.makeText(this, "Unable to save your score!", Toast.LENGTH_SHORT).show();
-      }
+    } else {
+      Toast.makeText(this, "Unable to save your score!", Toast.LENGTH_SHORT).show();
+    }
   }
 
   public void viewBtnClicked(View view) {
-      Intent intent = new Intent(this, ViewHighScoreActivity.class);
-      startActivity(intent);
-      finish();
+    Intent intent = new Intent(this, ViewHighScoreActivity.class);
+    startActivity(intent);
+    finish();
   }
 }
