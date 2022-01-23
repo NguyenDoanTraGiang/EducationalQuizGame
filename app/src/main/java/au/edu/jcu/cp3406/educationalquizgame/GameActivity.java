@@ -104,6 +104,7 @@ public class GameActivity extends AppCompatActivity {
   // display a question and its options
     public void displayQuestion(){
       if (currentQuestionNum > maxQuestionNum - 1){
+        isTimerRunning = false;
         displayScore();
         //end the Activity when player answered all questions
         finish();
@@ -145,6 +146,7 @@ public class GameActivity extends AppCompatActivity {
           handler.postDelayed(this, TIMER_SPEED);
         }
         if(questionTimer.toString().equals("00:00")){
+            isTimerRunning = false;
             // stop handler from running the previous timer
             handler.removeCallbacks(this);
             Toast.makeText(getApplicationContext(), "Time's out!", Toast.LENGTH_SHORT).show();
@@ -182,6 +184,7 @@ public class GameActivity extends AppCompatActivity {
     currentScoreIntent.putExtra("maxQuestionNum", maxQuestionNum);
     currentScoreIntent.putExtra("levelName", levelName);
     startActivity(currentScoreIntent);
+    finish();
   }
 
   // get all the questions, their answers and options
@@ -232,4 +235,10 @@ public class GameActivity extends AppCompatActivity {
     }
   }
 
+  @Override
+  public void onBackPressed() {
+    super.onBackPressed();
+    isTimerRunning = false;
+    this.finish();
+  }
 }
