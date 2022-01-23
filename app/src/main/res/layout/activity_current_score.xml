@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-  xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CurrentScoreActivity">
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".CurrentScoreActivity">
 
   <ScrollView
     android:layout_width="match_parent"
@@ -14,7 +12,7 @@
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:orientation="vertical" >
+      android:orientation="vertical">
 
       <TextView
         android:id="@+id/currentScoreLabel"
@@ -39,19 +37,19 @@
         android:id="@+id/subjectDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textAlignment="center"
         android:layout_marginTop="50dp"
-        android:text="@string/subjectDisplay"/>
+        android:text="@string/subjectDisplay"
+        android:textAlignment="center"
+        android:textSize="30sp" />
 
       <TextView
         android:id="@+id/currentScoreDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textAlignment="center"
         android:layout_marginTop="20dp"
-        android:text="@string/scoreDisplay" />
+        android:text="@string/scoreDisplay"
+        android:textAlignment="center"
+        android:textSize="30sp" />
 
       <LinearLayout
         android:layout_width="match_parent"
@@ -65,10 +63,11 @@
           android:layout_height="wrap_content"
           android:layout_margin="20dp"
           android:layout_weight="1"
+          android:onClick="saveBtnClicked"
           android:padding="20dp"
-          android:textSize="20sp"
           android:text="@string/saveScoreBtnLabel"
-          android:onClick="saveBtnClicked"/>
+          android:textSize="20sp"
+          tools:ignore="ButtonStyle" />
 
         <Button
           android:id="@+id/viewScoreBtn"
@@ -76,10 +75,11 @@
           android:layout_height="wrap_content"
           android:layout_margin="20dp"
           android:layout_weight="1"
+          android:onClick="viewBtnClicked"
           android:padding="20dp"
-          android:textSize="20sp"
           android:text="@string/viewScoreBtnLabel"
-          android:onClick="viewBtnClicked"/>
+          android:textSize="20sp"
+          tools:ignore="ButtonStyle" />
       </LinearLayout>
 
     </LinearLayout>
