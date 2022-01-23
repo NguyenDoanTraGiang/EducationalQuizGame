@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
@@ -44,7 +43,8 @@
             android:padding="20dp"
             android:text="@string/mathBtnLabel"
             android:textSize="20sp"
-            android:onClick="levelBtnClicked"/>
+            android:onClick="levelBtnClicked"
+            tools:ignore="ButtonStyle" />
 
           <Button
             android:id="@+id/englishBtn"
@@ -56,7 +56,8 @@
             android:padding="20dp"
             android:text="@string/englishBtnLabel"
             android:textSize="20sp"
-            android:onClick="levelBtnClicked"/>
+            android:onClick="levelBtnClicked"
+            tools:ignore="ButtonStyle"/>
         </TableRow>
 
         <TableRow
@@ -73,7 +74,8 @@
             android:padding="20dp"
             android:text="@string/geographyBtnLabel"
             android:textSize="20sp"
-            android:onClick="levelBtnClicked"/>
+            android:onClick="levelBtnClicked"
+            tools:ignore="ButtonStyle"/>
 
           <Button
             android:id="@+id/historyBtn"
@@ -85,7 +87,8 @@
             android:padding="20dp"
             android:text="@string/historyBtnLabel"
             android:textSize="20sp"
-            android:onClick="levelBtnClicked"/>
+            android:onClick="levelBtnClicked"
+            tools:ignore="ButtonStyle"/>
         </TableRow>
       </TableLayout>
 
@@ -95,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:padding="10dp"
-        android:text="Extras!"
+        android:text="@string/extrasLabel"
         android:textAlignment="center"
         android:textSize="30sp" />
 
