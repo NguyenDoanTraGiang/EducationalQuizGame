@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewHighScore"
+    android:orientation="vertical"
+    android:gravity="center">
+
+  <TextView
+    android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/highScoreLabel"
+    android:textAlignment="center"
+    android:textSize="40sp"
+    android:padding="10dp"/>
+
+  <ListView
+    android:id="@+id/highScoreDisplay"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+
+  </ListView>
+
+  <Button
+    android:id="@+id/toHomeBtn"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:text="@string/toHomeBtnLabel"
+    android:layout_margin="20dp"
+    android:layout_weight="0.03"
+    android:onClick="toHomeBtnClicked"
+    />
+
+</LinearLayout>
