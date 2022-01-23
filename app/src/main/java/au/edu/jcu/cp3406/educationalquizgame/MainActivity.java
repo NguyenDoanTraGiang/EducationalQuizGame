@@ -18,21 +18,21 @@ public class MainActivity extends AppCompatActivity {
   Integer timeLimit;
   Integer maxQuestion;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-        // set default value
-        timeLimit = 180;
-        maxQuestion = 4;
+    // set default value
+    timeLimit = 180;
+    maxQuestion = 4;
 
-        // get data from SavedInstance
-        if(savedInstanceState != null){
-          timeLimit = savedInstanceState.getInt("timeLimit");
-          maxQuestion = savedInstanceState.getInt("maxQuestion");
-        }
+    // get data from SavedInstance
+    if (savedInstanceState != null) {
+      timeLimit = savedInstanceState.getInt("timeLimit");
+      maxQuestion = savedInstanceState.getInt("maxQuestion");
     }
+  }
 
   // called when the UI changed, save data before activity is destroyed
   @Override
@@ -43,16 +43,16 @@ public class MainActivity extends AppCompatActivity {
   }
 
   public void levelBtnClicked(View view) {
-      Button button = (Button) view;
-      String btnText = button.getText().toString();
+    Button button = (Button) view;
+    String btnText = button.getText().toString();
 
-      // Start another activity using intent
-      Intent intent = new Intent(this, GameActivity.class);
-      // put the button name into intent so GameActivity can access it
-      intent.putExtra("gameLabel", btnText);
-      intent.putExtra("timeLimit", timeLimit);
-      intent.putExtra("maxQuestion", maxQuestion);
-      startActivity(intent);
+    // Start another activity using intent
+    Intent intent = new Intent(this, GameActivity.class);
+    // put the button name into intent so GameActivity can access it
+    intent.putExtra("gameLabel", btnText);
+    intent.putExtra("timeLimit", timeLimit);
+    intent.putExtra("maxQuestion", maxQuestion);
+    startActivity(intent);
   }
 
   public void settingBtnClicked(View view) {
@@ -69,14 +69,13 @@ public class MainActivity extends AppCompatActivity {
   protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     // get data from intent after pressing apply in SettingActivity
-    if(requestCode == SettingActivity.SETTING_REQUEST){
-      if(resultCode == RESULT_OK){
+    if (requestCode == SettingActivity.SETTING_REQUEST) {
+      if (resultCode == RESULT_OK) {
         if (data != null) {
           timeLimit = data.getIntExtra("timeLimit", 180);
           maxQuestion = data.getIntExtra("maxQuestion", 4);
 
-        }
-        else {
+        } else {
           timeLimit = 180;
           maxQuestion = 4;
         }
