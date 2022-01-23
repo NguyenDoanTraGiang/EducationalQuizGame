@@ -1,7 +1,5 @@
 package au.edu.jcu.cp3406.educationalquizgame;
 
-import static java.lang.Integer.parseInt;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,8 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.HashMap;
 
 public class GameActivity extends AppCompatActivity {
   Integer TIMER_SPEED = 1000;  // 1 second
@@ -49,16 +45,16 @@ public class GameActivity extends AppCompatActivity {
       maxQuestionNum= intent.getIntExtra("maxQuestion", 4);
 
       // Set game label
-      TextView gameLabel = (TextView) findViewById(R.id.gameLabel);
-      gameLabel.setText("Answer this " + levelName + " question before time runs out!");
+      TextView gameLabel = findViewById(R.id.gameLabel);
+      gameLabel.setText(String.format("Answer this %1$s question before time runs out!", levelName));
 
       // get Views
-      question = (TextView) findViewById(R.id.quesDisplay);
-      correctAnswerDisplay = (TextView) findViewById(R.id.correctAnswerDisplay);
-      currentQuestionDisplay = (TextView) findViewById((R.id.currentQuesDisplay));
+      question = findViewById(R.id.quesDisplay);
+      correctAnswerDisplay = findViewById(R.id.correctAnswerDisplay);
+      currentQuestionDisplay = findViewById((R.id.currentQuesDisplay));
 
       //get timer display
-      timer = (TextView) findViewById(R.id.timer);
+      timer = findViewById(R.id.timer);
 
       // set default value
       currentQuestionNum = 0;
@@ -125,7 +121,7 @@ public class GameActivity extends AppCompatActivity {
 
         question.setText(questions[currentQuestionNum]);
         for (int j = 0; j < allAnswers.length; j++) {
-          Button button = (Button) findViewById(optionBtns[j]);
+          Button button = findViewById(optionBtns[j]);
           button.setText(allAnswers[currentQuestionNum][j]);
         }
       }
@@ -157,10 +153,6 @@ public class GameActivity extends AppCompatActivity {
       }
     });
   }
-
-  //private void stopTimer() {
-    //isTimerRunning = false;
-  //}
 
   public void optionBtnClicked(View view) {
     // change to next question after an option has been pressed
@@ -235,6 +227,7 @@ public class GameActivity extends AppCompatActivity {
     }
   }
 
+  // end activity when back button is pressed
   @Override
   public void onBackPressed() {
     super.onBackPressed();
