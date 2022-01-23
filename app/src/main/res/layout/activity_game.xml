@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-  xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".GameActivity">
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".GameActivity">
 
   <ScrollView
     android:layout_width="match_parent"
@@ -22,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Game Label"
+        android:text="@string/gameLabel"
         android:textAlignment="center"
         android:textSize="20sp" />
 
@@ -39,14 +37,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Correct: 0"
+            android:text="@string/correctAnsDisplay"
             android:textSize="20sp" />
           <TextView
             android:id="@+id/currentQuesDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Current question: 0/4"
+            android:text="@string/currentQuesDisplay"
             android:textSize="20sp" />
         </LinearLayout>
 
@@ -56,7 +54,7 @@
           android:layout_height="match_parent"
           android:layout_weight="1"
           android:gravity="center"
-          android:text="01:00"
+          android:text="@string/timerDisplay"
           android:textSize="40sp" />
       </LinearLayout>
 
@@ -76,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Display the question here"
+            android:text="@string/quesDisplay"
             android:textSize="20sp"/>
         </TableRow>
 
@@ -88,7 +86,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textSize="20sp"
-            android:text="option1"
+            android:text="@string/option1Label"
             android:onClick="optionBtnClicked"/>
 
           <Button
@@ -99,7 +97,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textSize="20sp"
-            android:text="option2"
+            android:text="@string/option2Label"
             android:onClick="optionBtnClicked"/>
 
           <Button
@@ -110,7 +108,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textSize="20sp"
-            android:text="option3"
+            android:text="@string/option3Label"
             android:onClick="optionBtnClicked"/>
 
           <Button
@@ -121,7 +119,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textSize="20sp"
-            android:text="option4"
+            android:text="@string/option4Label"
             android:onClick="optionBtnClicked"/>
 
 
